@@ -20,7 +20,8 @@ ALLOWED_HOSTS = [
     'salonms-production.up.railway.app',
     '*.railway.app', 
     'localhost', 
-    '127.0.0.1'
+    '127.0.0.1',
+    'salon-m-s.vercel.app'
 ]
 
 # Application definition
@@ -142,7 +143,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:5173",     # Vite dev server
     "http://localhost:3000",     # Create React App dev server
     # Add your Vercel URL here when you get it
-    # "https://your-app-name.vercel.app",
+    "https://salon-m-s.vercel.app/",
 ]
 
 # Allow credentials for authentication
