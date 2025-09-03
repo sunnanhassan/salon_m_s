@@ -321,7 +321,7 @@ export default function OwnerBookings() {
                 👤 {b.customer.username}
               </div>
               <div className="text-sm text-slate-600">🏢 {b.salon.name}</div>
-
+              
               <div className="text-sm text-slate-600">
                 ⏰ {new Date(b.start_time).toLocaleString()} →{" "}
                 {new Date(b.end_time).toLocaleString()}

@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { createSalon, getSalon, updateSalon } from "../../api/salons";
 import { useNavigate, useParams } from "react-router-dom";
 import Input from "../../components/ui/Input";
-import { Button } from "../../components/ui/Button";
+import { Button } from "../../components/ui/button";
 
 export default function OwnerSalonForm() {
   const { id } = useParams();

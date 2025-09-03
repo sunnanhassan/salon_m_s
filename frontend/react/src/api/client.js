@@ -3,6 +3,7 @@ import axios from 'axios'
 
 export const API_BASE = 'https://salonms-production.up.railway.app/'
 
+
 const client = axios.create({
     baseURL: API_BASE,
     headers: {

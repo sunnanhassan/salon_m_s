@@ -1,6 +1,6 @@
 // src/pages/LandingPage.jsx
 import { Link } from "react-router-dom";
-import { Button } from "../components/ui/Button";
+import { Button } from "../components/ui/button";
 import { Scissors, MapPin, Calendar } from "lucide-react";
 
 export default function LandingPage() {

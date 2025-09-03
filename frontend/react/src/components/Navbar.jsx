@@ -78,7 +78,7 @@ export default function Navbar() {
       <div className="relative">
         {auth.user ? (
           <div className="flex items-center space-x-2">
-            <Button
+            <button
               onClick={() => setDropdownOpen((prev) => !prev)}
               className="flex items-center space-x-1 focus:outline-none"
             >
@@ -86,16 +86,16 @@ export default function Navbar() {
               <span className="text-sm text-slate-700">
                 {auth.user.username}
               </span>
-            </Button>
+            </button>
 
             {dropdownOpen && (
               <div className="absolute right-0 mt-2 w-36 bg-white border border-slate-200 rounded-xl shadow-lg z-50">
-                <Button
+                <button
                   onClick={handleLogout}
                   className="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-slate-100 rounded-xl"
                 >
                   Logout
-                </Button>
+                </button>
               </div>
             )}
           </div>

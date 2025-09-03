@@ -8,7 +8,7 @@ import {
   CardTitle,
 } from "../components/ui/card";
 import { Badge } from "../components/ui/badge";
-import { Button } from "../components/ui/Button";
+import { Button } from "../components/ui/button";
 import { MapPin, Clock, Search } from "lucide-react";
 import dayjs from "dayjs";
 import {

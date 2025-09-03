@@ -180,12 +180,12 @@ export default function BookingForm() {
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-center">
                         {slot.available ? (
-                          <Button
+                          <button
                             onClick={() => handleBookClick(slot)}
                             className="bg-sky-600 hover:bg-sky-700 text-white px-4 py-2 rounded-lg"
                           >
                             Book
-                          </Button>
+                          </button>
                         ) : (
                           <span className="text-gray-500">Booked</span>
                         )}
@@ -261,18 +261,18 @@ export default function BookingForm() {
                 </div>
 
                 <div className="flex justify-around">
-                  <Button
+                  <button
                     onClick={handleConfirmBooking}
                     className="bg-sky-600 hover:bg-sky-700 text-white px-4 py-2 rounded-lg"
                   >
                     Confirm
-                  </Button>
-                  <Button
+                  </button>
+                  <button
                     onClick={() => setShowModal(false)}
                     className="bg-gray-300 hover:bg-gray-400 text-gray-700 px-4 py-2 rounded-lg"
                   >
                     Cancel
-                  </Button>
+                  </button>
                 </div>
               </div>
             </div>
