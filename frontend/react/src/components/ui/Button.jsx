@@ -35,7 +35,7 @@ const buttonVariants = cva(
   }
 );
 
-function Button({ className, variant, size, asChild = false, ...props }) {
+function button({ className, variant, size, asChild = false, ...props }) {
   const Comp = asChild ? Slot : "button";
   return (
     <Comp
@@ -47,5 +47,5 @@ function Button({ className, variant, size, asChild = false, ...props }) {
 }
 
 // Named + default export ✅
-export { Button, buttonVariants };
-export default Button;
+export { button, buttonVariants };
+export default button;
