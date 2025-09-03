@@ -1,0 +1,23 @@
+# React frontend
+frontend/node_modules/
+frontend/build/
+frontend/dist/
+frontend/.env
+
+# Django backend
+backend/__pycache__/
+backend/.env
+backend/*.log
+
+# Editor/OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.pyc
+*.pyc
+*.py-tpl
+/backend/venv
+/backend/salon_mvp/users/__pycache__
+/backend/salon_mvp/users/__pycache__
+/backend/salon_mvp/users/__pycache__
