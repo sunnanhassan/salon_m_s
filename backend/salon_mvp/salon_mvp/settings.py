@@ -2,6 +2,7 @@
 Django settings for salon_mvp project.
 """
 
+import os
 from pathlib import Path
 from datetime import timedelta
 
@@ -11,9 +12,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-av%26rya$fu-*j_$*v0ab-(n^*owk6on7=gh6s(*@_8v*^xlsc"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# Set DEBUG based on environment variable for production safety
+DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
-ALLOWED_HOSTS = ['salonms-production.up.railway.app', '*.railway.app', 'localhost', '127.0.0.1']
+# Add all necessary hosts
+ALLOWED_HOSTS = [
+    'salonms-production.up.railway.app',
+    '*.railway.app', 
+    'localhost', 
+    '127.0.0.1'
+]
 
 # Application definition
 INSTALLED_APPS = [
@@ -38,6 +46,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",  # must be high in the list
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",  # For static files in production
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -87,8 +96,13 @@ TIME_ZONE = "Asia/Karachi"  # Pakistan Standard Time
 USE_I18N = True
 USE_TZ = True  # Keep True to store in UTC but display in PKT
 
-# Static files
+# Static files configuration for production
 STATIC_URL = "static/"
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
+# Media files
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
@@ -100,18 +114,69 @@ REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "rest_framework_simplejwt.authentication.JWTAuthentication",
     ),
+    "DEFAULT_PERMISSION_CLASSES": [
+        "rest_framework.permissions.IsAuthenticated",
+    ],
 }
 
 # JWT config
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(days=1),   # 24 hours
     "REFRESH_TOKEN_LIFETIME": timedelta(days=7),
+    "ROTATE_REFRESH_TOKENS": True,
+    "BLACKLIST_AFTER_ROTATION": True,
 }
 
-# CORS config (for React frontend at Vite)
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",
-    "http://127.0.0.1:5173",
+# CSRF trusted origins for Railway
+CSRF_TRUSTED_ORIGINS = [
+    'https://salonms-production.up.railway.app',
+    'http://salonms-production.up.railway.app',
+    # Add your Vercel URL here when you get it
+    # 'https://your-app-name.vercel.app',
 ]
 
+# CORS configuration for React frontend
+CORS_ALLOWED_ORIGINS = [
+    # Local development
+    "http://localhost:5173",     # Vite dev server
+    "http://127.0.0.1:5173",     # Vite dev server
+    "http://localhost:3000",     # Create React App dev server
+    "http://127.0.0.1:3000",     # Create React App dev server
+    
+    # Production - Add your Vercel URL here when you get it
+    # "https://your-app-name.vercel.app",
+]
+
+# Allow credentials for authentication
 CORS_ALLOW_CREDENTIALS = True
+
+# Additional CORS headers for API requests
+CORS_ALLOW_HEADERS = [
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
+]
+
+# Production security settings
+if not DEBUG:
+    # Security settings for production
+    SECURE_SSL_REDIRECT = True
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+    SECURE_BROWSER_XSS_FILTER = True
+    SECURE_CONTENT_TYPE_NOSNIFF = True
+    SECURE_HSTS_SECONDS = 31536000
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    SECURE_HSTS_PRELOAD = True
+    
+    # Session security
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+    
+    # Static files compression
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
