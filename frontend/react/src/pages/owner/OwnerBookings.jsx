@@ -7,7 +7,8 @@ import {
   updatePaymentStatus,
 } from "../../store/bookingsSlice";
 import { toast } from "react-toastify";
-import Button from "../../components/ui/Button";
+import { Button } from "../../components/ui/button";
+// import Button from "../../components/ui/Button";
 
 export default function OwnerBookings() {
   const dispatch = useDispatch();
@@ -321,7 +322,7 @@ export default function OwnerBookings() {
                 👤 {b.customer.username}
               </div>
               <div className="text-sm text-slate-600">🏢 {b.salon.name}</div>
-              
+
               <div className="text-sm text-slate-600">
                 ⏰ {new Date(b.start_time).toLocaleString()} →{" "}
                 {new Date(b.end_time).toLocaleString()}
