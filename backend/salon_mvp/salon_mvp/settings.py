@@ -161,3 +161,4 @@ CORS_ALLOWED_ORIGIN_REGEXES = [
 
 # Allow credentials for authentication
 CORS_ALLOW_CREDENTIALS = True
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
