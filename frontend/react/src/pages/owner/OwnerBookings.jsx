@@ -9,7 +9,7 @@ import {
 import { toast } from "react-toastify";
 // import { Button } from "../../components/ui/button";
 // import Button from "../../components/ui/button";
-import { Button } from "@/components/ui/button";
+import { Button } from "../../components/ui/Button"; // ✅ fixed import
 
 export default function OwnerBookings() {
   const dispatch = useDispatch();

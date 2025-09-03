@@ -10,7 +10,7 @@ import {
   CardFooter,
 } from "../components/ui/card";
 import Input from "../components/ui/Input";
-import { Button } from "../components/ui/button";
+import { Button } from "../components/ui/Button";
 
 export default function Register() {
   const [username, setUsername] = useState("");

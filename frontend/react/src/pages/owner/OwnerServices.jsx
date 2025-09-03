@@ -7,7 +7,7 @@ import {
   deleteService,
 } from "../../api/salons";
 import Input from "../../components/ui/Input";
-import { Button } from "../../components/ui/button";
+import { Button } from "../../components/ui/Button";
 
 export default function OwnerServices() {
   const { id } = useParams(); // salon ID
