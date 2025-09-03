@@ -133,7 +133,7 @@ CSRF_TRUSTED_ORIGINS = [
     'https://salonms-production.up.railway.app',
     'http://salonms-production.up.railway.app',
     # Add your Vercel URL here when you get it
-    # 'https://your-app-name.vercel.app',
+    'https://salon-m-s.vercel.app',
 ]
 
 # CORS configuration for React frontend
@@ -142,8 +142,8 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",     # Vite dev server
     "http://127.0.0.1:5173",     # Vite dev server
     "http://localhost:3000",     # Create React App dev server
-    # Add your Vercel URL here when you get it
-    "https://salon-m-s.vercel.app/",
+    # Add your Vercel URL here
+    "https://salon-m-s.vercel.app",
 ]
 
 # Allow credentials for authentication
