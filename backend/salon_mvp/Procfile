@@ -1,1 +1,1 @@
-web: gunicorn salon_mvp.wsgi --chdir backend --bind 0.0.0.0:8080 --log-file -
+web: gunicorn salon_mvp.wsgi --bind 0.0.0.0:8080 --log-file -
