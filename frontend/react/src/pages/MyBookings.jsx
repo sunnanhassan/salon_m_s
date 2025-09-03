@@ -7,7 +7,7 @@ import {
   CardHeader,
   CardTitle,
 } from "../components/ui/card";
-import { Button } from "../components/ui/button";
+import { Button } from "../components/ui/Button";
 import { Badge } from "../components/ui/badge";
 import dayjs from "dayjs";
 import { Scissors, Building2, MapPin, CreditCard } from "lucide-react";

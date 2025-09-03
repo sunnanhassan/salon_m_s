@@ -10,7 +10,7 @@ import {
   CardFooter,
 } from "../components/ui/card";
 import Input from "../components/ui/Input";
-import Button from "../components/ui/button";// Corrected path
+import button from "../components/ui/button"; // Corrected path
 
 export default function Login() {
   const [username, setUsername] = useState("");

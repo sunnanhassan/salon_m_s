@@ -7,7 +7,7 @@ import {
   deleteService,
 } from "../../api/salons";
 import Input from "../../components/ui/Input";
-import { Button } from "../../components/ui/button";
+import { Button } from "../../components/ui/Button";
 
 export default function OwnerServices() {
   const { id } = useParams(); // salon ID
@@ -148,7 +148,7 @@ export default function OwnerServices() {
           </Button>
           {editingId && (
             <Button
-              type="button"
+              type="Button"
               onClick={resetForm}
               className="flex-1 bg-gray-200 hover:bg-gray-300 text-slate-800 rounded-xl"
             >
