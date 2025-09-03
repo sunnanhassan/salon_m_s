@@ -22,7 +22,9 @@ ALLOWED_HOSTS = [
     'localhost', 
     '127.0.0.1',
     'salon-m-s.vercel.app',
-    'salon-m-s-git-main-sunnanhassans-projects.vercel.app'
+    'salon-m-s-git-main-sunnanhassans-projects.vercel.app',
+    'salon-m-ceq24bvpt-sunnanhassans-projects.vercel.app',
+    '*.vercel.app',  # ✅ wildcard for all vercel apps
 ]
 
 # Application definition
@@ -129,12 +131,14 @@ SIMPLE_JWT = {
     "BLACKLIST_AFTER_ROTATION": True,
 }
 
-# CSRF trusted origins for Railway
+# CSRF trusted origins for Railway + Vercel
 CSRF_TRUSTED_ORIGINS = [
     'https://salonms-production.up.railway.app',
     'http://salonms-production.up.railway.app',
     'https://salon-m-s.vercel.app',
     'https://salon-m-s-git-main-sunnanhassans-projects.vercel.app',
+    'https://salon-m-ceq24bvpt-sunnanhassans-projects.vercel.app',
+    'https://*.vercel.app',  # ✅ wildcard for all vercel apps
 ]
 
 # CORS configuration for React frontend
@@ -143,9 +147,16 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",     # Vite dev server
     "http://127.0.0.1:5173",     # Vite dev server
     "http://localhost:3000",     # Create React App dev server
-    # Add your Vercel URL here
+
+    # Deployed frontends
     "https://salon-m-s.vercel.app",
     "https://salon-m-s-git-main-sunnanhassans-projects.vercel.app",
+    "https://salon-m-ceq24bvpt-sunnanhassans-projects.vercel.app",
+]
+
+# Allow all vercel origins dynamically
+CORS_ALLOWED_ORIGIN_REGEXES = [
+    r"^https:\/\/.*\.vercel\.app$",
 ]
 
 # Allow credentials for authentication
