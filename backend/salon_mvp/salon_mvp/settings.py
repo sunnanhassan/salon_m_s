@@ -141,42 +141,9 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",     # Vite dev server
     "http://127.0.0.1:5173",     # Vite dev server
     "http://localhost:3000",     # Create React App dev server
-    "http://127.0.0.1:3000",     # Create React App dev server
-    
-    # Production - Add your Vercel URL here when you get it
+    # Add your Vercel URL here when you get it
     # "https://your-app-name.vercel.app",
 ]
 
 # Allow credentials for authentication
 CORS_ALLOW_CREDENTIALS = True
-
-# Additional CORS headers for API requests
-CORS_ALLOW_HEADERS = [
-    'accept',
-    'accept-encoding',
-    'authorization',
-    'content-type',
-    'dnt',
-    'origin',
-    'user-agent',
-    'x-csrftoken',
-    'x-requested-with',
-]
-
-# Production security settings
-if not DEBUG:
-    # Security settings for production
-    SECURE_SSL_REDIRECT = True
-    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-    SECURE_BROWSER_XSS_FILTER = True
-    SECURE_CONTENT_TYPE_NOSNIFF = True
-    SECURE_HSTS_SECONDS = 31536000
-    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-    SECURE_HSTS_PRELOAD = True
-    
-    # Session security
-    SESSION_COOKIE_SECURE = True
-    CSRF_COOKIE_SECURE = True
-    
-    # Static files compression
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
