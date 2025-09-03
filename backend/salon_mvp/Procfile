@@ -1,1 +1,1 @@
-web: gunicorn salon_mvp.wsgi --bind 0.0.0.0:8080 --log-file -
+web: python manage.py migrate && python manage.py collectstatic --noinput && gunicorn salon_mvp.wsgi:application --host 0.0.0.0 --port $PORT
