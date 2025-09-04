@@ -1,7 +1,7 @@
 // src/api/client.js
 import axios from 'axios'
 
-export const API_BASE = 'https://salonms-production.up.railway.app/'
+export const API_BASE = 'https://sunnan.pythonanywhere.com/'
 
 
 const client = axios.create({
